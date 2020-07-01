@@ -971,14 +971,21 @@ class MainWindow(QtGui.QMainWindow):
 			pValuesCorrected = self.groupStatsTest.results.getColumnAsStr('pValuesCorrected', bActiveFeatures)
 			notes = self.groupStatsTest.results.getColumn('Note', bActiveFeatures)
 
+                        file1 = open("group.tsv","w")
+
 			for i in xrange(0, len(features)):
 				tableData.append([features[i], effectSizes[i], pValues[i], pValuesCorrected[i], notes[i]])
+#                                print features[i],"\t", effectSizes[i],"\t", pValues[i],"\t", pValuesCorrected[i],"\t", notes[i]
+                                file1.write(features[i] + "\t" + effectSizes[i] + "\t" + pValues[i] + "\t" + pValuesCorrected[i] + "\t" + notes[i] + "\n")
+
+                        file1.close()
 
 		if self.preferences['Selected group feature'] not in features:
 			self.preferences['Selected group feature'] = ''
 
 		self.groupFeatureTable = GenericTable(tableData, ['Feature', 'Diff. between means', 'p-value', 'Corrected p-value', 'Note'], self)
 		self.groupFeatureTable.sort(0, QtCore.Qt.AscendingOrder)  # start with features in alphabetical order
+#                print tableData,'\n'
 
 		self.ui.tableGroupFeatures.horizontalHeader().setStretchLastSection(True)
 		self.ui.tableGroupFeatures.setModel(self.groupFeatureTable)
@@ -1001,8 +1008,14 @@ class MainWindow(QtGui.QMainWindow):
 			pValuesCorrected = self.multiGroupStatsTest.results.getColumnAsStr('pValuesCorrected', bActiveFeatures)
 			notes = self.multiGroupStatsTest.results.getColumn('Note', bActiveFeatures)
 
+                        file2 = open("multigroup.tsv","w")
+
 			for i in xrange(0, len(features)):
 				tableData.append([features[i], effectSizes[i], pValues[i], pValuesCorrected[i], notes[i]])
+#                                print([features[i],"\t",effectSizes[i],"\t",pValues[i],"\t",pValuesCorrected[i],"\t",notes[i]])
+                                file2.write(features[i] +"\t"+ effectSizes[i] +"\t"+ pValues[i] +"\t"+ pValuesCorrected[i] +"\t"+ notes[i] +"\n")
+
+                        file2.close()
 
 		if self.preferences['Selected multiple group feature'] not in features:
 			self.preferences['Selected multiple group feature'] = ''

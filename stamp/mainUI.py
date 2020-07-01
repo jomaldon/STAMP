@@ -2004,7 +2004,7 @@ class Ui_MainWindow(object):
         self.chkShowActiveFeaturesMultiGroupTable.setText(_translate("MainWindow", "Show only active features", None))
         self.btnMultiGroupConfigurePlot.setText(_translate("MainWindow", "Configure plot", None))
         self.label_28.setText(_translate("MainWindow", "Highlight:", None))
-        self.chkShowActiveFeaturesGroupTable.setText(_translate("MainWindow", "Show only active features", None))
+        self.chkShowActiveFeaturesGroupTable.setText(_translate("MainWindow", "Show only active featuresJM", None))
         self.btnGroupConfigurePlot.setText(_translate("MainWindow", "Configure plot", None))
         self.label_13.setText(_translate("MainWindow", "Highlight:", None))
         self.btnSampleConfigurePlot.setText(_translate("MainWindow", "Configure plot", None))
